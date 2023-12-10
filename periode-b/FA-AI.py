@@ -39,7 +39,7 @@ studentnummer = 1848569
         lijst aanneemt bij álle tussenstappen bij toepassing van
         bovenstaand sorteeralgoritme.
 
-        we gebruiken bubblesort
+        met bubblesort:
         begin: [4,3,1,2]
         wissel [0] en [1] [3,4,1,2]
         wissel [1] en [2] [3,1,4,2]
@@ -48,7 +48,6 @@ studentnummer = 1848569
         wissel [1] en [2] [1,2,3,4] 
         vergelijk [0] en [1] [1,3,2,4] hetzelfde dus geen wissel
 """
-#       TODO: [geef hier je antwoord]
 """
 
     1b. Implementatie
@@ -65,7 +64,6 @@ studentnummer = 1848569
             bubblesort: het is on2 dus 6 stappen minimaal
             
 """
-#           TODO: [geef hier je antwoord]
 """
 
 
@@ -76,7 +74,6 @@ studentnummer = 1848569
             bubblesort: [4,3,2,1]
 
 """
-#           TODO: [geef hier je antwoord]
 """
 
 
@@ -86,10 +83,11 @@ studentnummer = 1848569
             En wat is nu het worst-case scenario?
             Hoeveel vergelijkingen zijn er nodig?
 
-            bubblesort: [1,2,3,4]
-            er zijn evenveel vergelijkingen nodig maar er wordt niks aangepast
+            bubblesort best case: [1,2,3,4]
+            er 4 cergelijkingen nodig met best case 
+            worstcase: [4,3,2,1]
+            worst case 6 vergelijkingen
 """
-#           TODO: [geef hier je antwoord]
 """
 
 
@@ -100,10 +98,8 @@ studentnummer = 1848569
             Hoeveel vergelijkingen zijn er nodig?
             En wat is nu het worst-case scenario?
             Hoeveel vergelijkingen zijn er nodig?
+            
 
-"""
-#           TODO: [geef hier je antwoord]
-"""
 """
 
 
@@ -124,7 +120,7 @@ def my_sort(lst):
     Returns:
         list: Een nieuwe, gesorteerde variant van lijst `lst`.
     """
-    # copy without pounter
+    # copy without pointer
     lst_sorted = lst[:]
 
     # bubblesort
