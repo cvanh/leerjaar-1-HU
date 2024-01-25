@@ -4,33 +4,6 @@
   vars_files: 
     - ./vars/proxmox.yml
     - ./vars/vault.yml
-
-  tasks:
-
-    - name: install pip
-      ansible.builtin.apt:
-        state: present
-        pkg: 
-          - pip
-          - python3-proxmoxer
-
-    - name: Download windows server 2016 
-      ansible.builtin.get_url:
-        url: https://drive.massgrave.dev/en_windows_server_2016_x64_dvd_9327751.iso
-        dest: /var/lib/vz/template/iso//windows_server_2016.iso
-        mode: '0440'
-        checksum: sha1:7e33df150cb4d1fe3503e23433a1867ddd79a6ee
-
-    - name: Create new VM with minimal options
-      community.general.proxmox_kvm:
-        api_user: "{{ proxmox_api_user }}" 
-        api_token_id: "{{ proxmox_api_id }}" 
-        api_token_secret: "{{ proxmox_api_secret }}" 
-        api_host: "{{ proxmox_api_host }}" 
-        node: "{{ proxmox_node_name }}" 
-        name: spynal
-        disk: local:35gb
-        ide: '{"ide0":"local:iso/windows_server_2016.iso,media=cdrom"}'
-        
-
-
+  roles:
+    - windows_server_2016 
+  # tasks:

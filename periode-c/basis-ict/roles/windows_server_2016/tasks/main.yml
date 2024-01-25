@@ -1,0 +1,98 @@
+---
+    - name: install pip
+      ansible.builtin.apt:
+        state: present
+        pkg: 
+          - pip
+          - python3-proxmoxer
+
+    - name: Download windows server 2016 
+      ansible.builtin.get_url:
+        url: https://drive.massgrave.dev/en_windows_server_2016_x64_dvd_9327751.iso
+        dest: /var/lib/vz/template/iso/windows_server_2016.iso
+        mode: '0440'
+        checksum: sha1:7e33df150cb4d1fe3503e23433a1867ddd79a6ee
+
+    # - name: Create new VM with minimal options
+    #   community.general.proxmox_kvm:
+    #     api_user: "{{ proxmox_api_user }}" 
+    #     api_token_id: "{{ proxmox_api_id }}" 
+    #     api_token_secret: "{{ proxmox_api_secret }}" 
+    #     api_host: "{{ proxmox_api_host }}" 
+    #     node: "{{ proxmox_node_name }}" 
+    #     name: spynal
+    #     disk: local:35gb
+    #     ide: '{"ide0":"local:iso/windows_server_2016.iso,media=cdrom"}'
+        
+
+    - name: Get available VMID
+      vars:
+        var_concat_seed: "{{inventory_hostname}}-{{template_name}}"
+        rand_vmid: "{{9999 | random(seed=var_concat_seed)}}"  
+      command: pvesh get /cluster/nextid -vmid {{rand_vmid}}
+      register: next_vmid
+      failed_when: next_vmid.rc != 0
+
+    # Create temp directory
+    - name: Create temp directory
+      file:
+        path: /tmp/{{template_name}}
+        state: directory
+    
+    # Template out autounattend answer file    
+    - name: Template out autounattend answer file        
+      template:
+        src: ../templates/autounattend.xml.tpl
+        dest: /tmp/{{template_name}}/autounattend.xml
+
+    # Copy drivers & scripts for ISO         
+    - name: Copy files for ISO
+      copy:
+        src: ../files/iso-files/
+        dest: /tmp/{{template_name}}/
+
+    # Create ISO with drivers, scripts, & answer file    
+    - name: Create ISO file
+      become: true
+      command: "genisoimage -allow-limited-size -J -r -iso-level 3 -o /var/lib/vz/template/iso/{{template_name}}Provision.iso /tmp/{{template_name}}/"
+      register: iso_created       
+
+    # Create VM
+    - name: Create VM
+      command: "qm create {{next_vmid.stdout}} --name {{template_name}} --sockets {{vm_sockets}} --cores {{vm_cores}} --memory {{vm_memory_mb}} --ide2 file={{os_iso_location}},media=cdrom --ide3 file=local:iso/{{template_name}}Provision.iso,media=cdrom --net0 model=virtio,bridge=vmbr0,firewall=1 --scsihw virtio-scsi-pci --scsi0 {{pve_storage_id}}:{{drive_size_gb}},format={{format}} --ostype {{vm_os_type}} --agent {{agent}}"
+
+    # Start VM
+    - name: Start VM
+      command: "qm start {{next_vmid.stdout}}"
+
+    # Wait for VM build
+    - name: Wait for OS install, config, update, sysprep. Up to 120 min. Monitor status if possible.
+      command: "qm wait {{next_vmid.stdout}}"    
+      async: 7200
+      poll: 30  
+
+    # Remove CD drives
+    - name: Remove IDE CD Drives
+      command: "qm set {{next_vmid.stdout}} --delete ide2 --delete ide3"
+
+    # Create template from VM
+    - name: Create template
+      command: "qm template {{next_vmid.stdout}}"        
+
+    # Remove ISO
+    - name: Remove Unattend ISO file
+      file:
+        path: /var/lib/vz/template/iso/{{template_name}}Provision.iso
+        state: absent
+
+    # Cleanup temp files
+    - name: Cleanup temp files used for ISO build
+      file:
+        path: /tmp/{{template_name}}
+        state: absent
+      when: iso_created.changed      
+
+    - name: Done
+      debug:
+        msg: Template build {{template_name}}, with VMID {{next_vmid.stdout}} complete.
+      
