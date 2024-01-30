@@ -8,7 +8,7 @@ np = neopixel.NeoPixel(machine.Pin(13), 8)
 count = 0
 while True:
     # increment and change each light
-    for i in range(7):
+    for i in range(8):
       k = [0,0,0]  
       k[count] = 255
       
@@ -20,7 +20,7 @@ while True:
     count = count + 1
 
     # turn leds of
-    np.fill((0,0,0))
+    # np.fill((0,0,0))
     time.sleep(1)
 
     # if we looped 3 times we exit

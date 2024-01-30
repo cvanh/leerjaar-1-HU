@@ -30,3 +30,5 @@ override.tf.json
 
 *plan*
 *.lock.hcl
+
+.ssh

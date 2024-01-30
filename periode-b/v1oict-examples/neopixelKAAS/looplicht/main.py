@@ -6,7 +6,7 @@ import neopixel
 np = neopixel.NeoPixel(machine.Pin(13), 8)
 
 while True:
-    for i in range(7):
+    for i in range(8):
       np[i] = [255,0,0]  
       time.sleep(1)
       np.write()

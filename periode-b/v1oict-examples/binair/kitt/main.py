@@ -1,6 +1,11 @@
 from machine import Pin
 import time
 
+
+# binary = "0b10101011" 
+#decimal = int(binary, 2)
+#print(decimal)
+
 led_pins = [
     Pin(0, Pin.OUT),
     Pin(1, Pin.OUT),
@@ -30,4 +35,4 @@ while True:
     leds(8, delay)
     leds(4, delay)
     leds(2, delay)
-    leds(1, delay)
+    leds(1, delay)3

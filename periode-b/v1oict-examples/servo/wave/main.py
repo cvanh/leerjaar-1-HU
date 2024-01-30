@@ -25,7 +25,7 @@ def servo_pulse(position):
     Before this function is called,
     the gpio pin must be configured as output.
     """
-    position = position * 655
+    position = position * 355
     print(position)
     servo_pin.duty_u16(position)
     time.sleep(0.2)

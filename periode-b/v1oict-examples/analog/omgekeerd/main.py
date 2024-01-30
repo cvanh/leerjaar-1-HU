@@ -19,6 +19,7 @@ def led_brightness(value):
 
 while True:
     adc_value = adc.read_u16()
+    print(adc_value)
     led_brightness(adc_value)
-    time.sleep(0.01)
+    time.sleep(0.11)
 
