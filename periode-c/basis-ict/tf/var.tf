@@ -1,9 +1,9 @@
 variable "proxmox_host" {
 	type = map
      default = {
-       pm_api_url = "https://10.0.42.50:8006/api2/json"
-       pm_user = "root@pam"
-       target_node = "pve"
+       pm_api_url = "https://hetzner.imaretarded.dev:8006/api2/json"
+       pm_user = "terraform-prov@pve"
+       target_node = "hetzner"
      }
 }
 
@@ -26,18 +26,18 @@ variable "rootfs_size" {
 variable "ips" {
     description = "IPs of the VMs, respective to the hostname order"
     type        = list(string)
-	default     = ["10.0.42.80", "10.0.42.81", "10.0.42.82"]
+	default     = ["10.10.10.10", "10.10.10.11", "10.10.10.12"]
 }
 
 variable "ssh_keys" {
 	type = map
      default = {
-       pub  = "~/.ssh/id_ed25519-pwless.pub"
-       priv = "~/.ssh/id_ed25519-pwless"
+       pub  = "../.ssh/id_rsa.pub"
+       priv = "../.ssh/id_rsa"
      }
 }
 
-variable "ssh_password" {}
+# variable "ssh_password" {}
 
 variable "user" {
 	default     = "notroot"

@@ -38,7 +38,7 @@ resource "proxmox_vm_qemu" "prox-vm" {
   disk {
     #id = 0
     type = "virtio"
-    storage = "local-lvm"
+    storage = "local"
     size = "5G"
   }
 
