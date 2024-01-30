@@ -1,7 +1,7 @@
 variable "proxmox_host" {
 	type = map
      default = {
-       pm_api_url = "https://10.0.42.50:8006/api2/json"
+       pm_api_url = "https://hetzner.imaretarded.dev:8006/api2/json"
        pm_user = "root@pam"
        target_node = "pve"
      }

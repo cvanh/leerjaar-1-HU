@@ -1,2 +1,0 @@
-#!/usr/bin/env zsh
-op read 'op://Private/ansible_vault_canopy/credential' | ansible-playbook --vault-password-file /dev/stdin -i inventory main.yml
