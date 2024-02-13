@@ -14,8 +14,12 @@ run: run_tf run_ansible
 set_up_pub_keys:
 ifeq (,test -f $(ANSIBLE_DIR)/files/authorized_keys)
 	@echo downloading pub keys and saving them
+<<<<<<< Updated upstream
 	@curl https://github.com/cvanh.keys > $(ANSIBLE_DIR)/files/authorized_keys --silent
 endif
+=======
+	@curl https://github.com/cvanh.keys > ansible/files/authorized_keys --silent
+>>>>>>> Stashed changes
 
 # generate pub and private key if they do not exist already
 set_up_keys: 
