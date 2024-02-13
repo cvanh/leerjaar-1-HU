@@ -34,7 +34,7 @@ he, she, it + verb + s = he works
 but there are exeptions
 
 ### present perfect
-past
+things in the past or that still need to happen
 
 ### present simple rule
 facts and routines
@@ -98,15 +98,15 @@ Name each underlined tense
 Explain why the tense was used in that sentence
 
 *My sister is living at home for the moment.*
-present simple, because she is now living at home
+present continuous, because she is now living at home
 
 *Have you had lunch yet?*
-present continuous because it is unfinished
+present perfect because it is unfinished
 
 *No, I’ve been reading emails all day.*
+present simple
 
 *He worked for that company for 2 years.*
-past continious 
 
 *My brother doesn’t eat meat.*
 
