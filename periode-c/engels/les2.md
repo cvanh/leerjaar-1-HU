@@ -1,5 +1,7 @@
-On my previous vacantion I was climbing in south-france, the weather was quite nice. In a month I will be going to Canada where the weather is less nice and more dutch.
+# les 2 
 
+## warming up excercises
+On my previous vacantion I was climbing in south-france, the weather was quite nice. In a month I will be going to Canada where the weather is less nice and more dutch.
 
 "scientist discover new planet"
 discover 
@@ -25,14 +27,27 @@ reveals
 ?
 the s gives extra info
 
-
-## present simple
+## grammer
+### present simple
 i, you, we, they + verb = i work
 he, she, it + verb + s = he works
+but there are exeptions
 
-but there are some expections
+### present perfect
+past
+
+### present simple rule
+facts and routines
+verb
+verb + s
+verb + es
+
+### present continous rule
+action, at the moment, unifished, in progress
+
 
 ## leerpijn
+### past simple, past continuous or past perfect simple
  Fill in the correct form, choosing from past simple, past continuous or past perfect simple 
 
 While Tom *was playign* the piano, his mother did the dishes. 
@@ -46,6 +61,7 @@ I could not understand what they talked about.
 I had run about 1 km before finally I catched a taxi. 
 
 
+### past simple present perfect excercise
 Fill in the correct form of the verb choosing from past simple and present perfect
 (mind the questions)
 Nina *has* broken her leg. She is still in hospital. (BREAK)
@@ -60,6 +76,7 @@ Emily and Molly know each other for more than 10 years now. (KNOW)
 How many games has your team won so far this season? (WIN)
 
 
+### present simple or present continuous excersise
 Fill in the correct form, choosing from present simple and present continuous (mind the questions and
 negatives)
 
@@ -74,4 +91,32 @@ Where are you coming from at this hour? (COME)
 does your girlfriend always wear green T-shirts? (WEAR)
 Every day his grandfather goes for a walk. (GO)
 is the boy swiming in the pool right now? (SWIM)
+
+
+### naming and explaining tenses excersise
+Name each underlined tense
+Explain why the tense was used in that sentence
+
+*My sister is living at home for the moment.*
+present simple, because she is now living at home
+
+*Have you had lunch yet?*
+present continuous because it is unfinished
+
+*No, I’ve been reading emails all day.*
+
+*He worked for that company for 2 years.*
+past continious 
+
+*My brother doesn’t eat meat.*
+
+*I had been shopping for presents when I ran into my wife.*
+
+*Did you see the news yesterday evening?*
+
+*No, I was practicing with my band.*
+
+*We haven’t had many customers this evening.*
+
+*I didn’t feel like seeing the film, because I had read the book.*
 
